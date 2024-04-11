@@ -1,0 +1,34 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: wildcard
+  datasource:
+    url: jdbc:postgresql://localhost:5432/exchange-db
+    username: postgres
+    password: postgres
+    validation-query: SELECT 1;
+    validation-interval: 10000
+  jpa:
+    show-sql: true
+
+logging:
+  level:
+    org.zalando.logbook: TRACE
+    kz.magnum: INFO
+
+management:
+  metrics:
+    tags:
+      application: wildcard
+  endpoints:
+    web:
+      exposure:
+        include: prometheus,health,info
+    endpoint:
+      health:
+        show-details: always
+
+app:
+  name: '@project.artifactId@'
+  version: '@project.version@'

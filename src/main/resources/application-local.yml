@@ -1,0 +1,9 @@
+server:
+  port: 8072
+spring:
+  application:
+    name: wildcard
+  datasource:
+    url: jdbc:postgresql://localhost:5432/crmshop
+    username: postgres
+    password: postgres

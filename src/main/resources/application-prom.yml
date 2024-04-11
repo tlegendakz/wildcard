@@ -1,0 +1,13 @@
+server:
+  port: 8072
+
+spring:
+  jpa:
+    show-sql: false
+  datasource:
+    url: jdbc:postgresql://172.21.0.2:5432/crmshop
+    username: postgres
+    password: kenzhebekov_dongilov_1988_CRM
+
+
+
