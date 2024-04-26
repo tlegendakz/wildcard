@@ -2,6 +2,7 @@ package kz.realcash.wildcard.controllers;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import kz.realcash.wildcard.dto.GoodsDto;
 import kz.realcash.wildcard.dto.TokenDTO;
 import kz.realcash.wildcard.dto.UserCRMDTO;
 import kz.realcash.wildcard.dto.WhatsAppMessageDto;
@@ -10,6 +11,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @RestController
@@ -25,6 +28,30 @@ public class MyController {
 	public @ResponseBody
 	void sendWhatsapp(@RequestBody List<WhatsAppMessageDto> whatsAppMessageDtos) {
 		whatsappMessageService.send(whatsAppMessageDtos);
+	}
+
+	@PutMapping(value = "/stocks/sendStock/from_kaspi")
+	public @ResponseBody
+	void sendStock(@RequestBody GoodsDto message) {
+		var text = "text";
+		try {
+			text = objectMapper.writeValueAsString(message);
+		} catch (JsonProcessingException e) {
+			e.printStackTrace();
+		}
+		log.info("sendStock" + text);
+	}
+
+	@PutMapping(value = "/stocks/sendClient/from_kaspi")
+	public @ResponseBody
+	void sendClient(@RequestBody GoodsDto message) {
+		var text = "text";
+		try {
+			text = objectMapper.writeValueAsString(message);
+		} catch (JsonProcessingException e) {
+			e.printStackTrace();
+		}
+		log.info("sendClient" + text);
 	}
 
 	@PostMapping(value = "/users/login")

@@ -5,9 +5,9 @@ spring:
   jpa:
     show-sql: false
   datasource:
-    url: jdbc:postgresql://172.21.0.2:5432/crmshop
+    url: jdbc:postgresql://172.19.0.2:5432/crmshop
     username: postgres
-    password: kenzhebekov_dongilov_1988_CRM
+    password: Dongilov_Kenzhebekov_@_1988_CRM
 
 
 
